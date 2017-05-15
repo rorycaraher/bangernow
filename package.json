@@ -1,0 +1,15 @@
+{
+  "name": "bangernow",
+  "version": "1.0.0",
+  "description": "play a random banger from youtube",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rorycaraher",
+  "license": "ISC",
+  "devDependencies": {
+    "opn": "^5.0.0",
+    "request": "^2.81.0"
+  }
+}
