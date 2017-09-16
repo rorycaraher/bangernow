@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 var request = require('request');
 var opn = require('opn');
+var chalk = require('chalk');
+var config = require('./config');
 
 var base_url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50";
 var part = "snippet";
 var maxResults = "200";
-var api_key = "AIzaSyBB6oieIYIjkGWVmRzyVLwrymR_-wzD4KM";
-var list_id = "PLdONXlH_Zsprsgf_8YwkeIFihY_hTcqP-";
+var api_key = config.youtube.key;
+var list_id = config.youtube.playlist;
 
 var full_url = base_url + "&playlistId=" + list_id + "&key=" + api_key;
 request(full_url, function (error, response, body) {
@@ -28,7 +30,7 @@ function getTracks(body) {
     	}
     	titles.push(video_details);
     }
-    console.log("Now listening to: " + titles[choice].title);
+    console.log(chalk.magenta("Now listening to: ") + titles[choice].title);
     var track_link = "https://youtu.be/" + titles[choice].id + "?list=" + list_id;
     opn(track_link,{wait: false});
 }
