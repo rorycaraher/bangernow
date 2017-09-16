@@ -1,6 +1,6 @@
 ## Synopsis
 
-**bangernow** is a node tool to select and play a 
+**bangernow** is a node tool to select and play a random video from a given YouTube playlist.
 
 ## Motivation
 
