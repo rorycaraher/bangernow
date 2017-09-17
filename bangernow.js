@@ -5,10 +5,8 @@ var chalk = require('chalk');
 var config = require('./config');
 
 var base_url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50";
-var part = "snippet";
-var maxResults = "200";
-var api_key = config.youtube.key;
-var list_id = config.youtube.playlist;
+var api_key = config.youtube.api_key;
+var list_id = config.youtube.playlist_id;
 
 var full_url = base_url + "&playlistId=" + list_id + "&key=" + api_key;
 request(full_url, function (error, response, body) {
