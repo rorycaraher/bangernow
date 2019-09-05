@@ -19,7 +19,7 @@ request(full_url, function (error, response, body) {
     }
 });
 
-// business time
+// main function
 function getTracks(body) {
     // parse the body result into JSON
 	var result_object = JSON.parse(body);
@@ -31,11 +31,12 @@ function getTracks(body) {
 	var choice = Math.floor(Math.random() * num_results);
 
     // loop over all our results
-    for (var i=0; i<result_object.items.length; i++) {
+    // for (var i=0; i<result_object.items.length; i++) {
+    for (let track of result_object.items) {
         // make an object with title and id for each track
     	var video_details = {
-    		title: result_object.items[i].snippet.title,
-    		id: result_object.items[i].snippet.resourceId.videoId
+    		title: track.snippet.title,
+    		id: track.snippet.resourceId.videoId
     	}
         // push that object onto our array of tracks
         tracks.push(video_details);
